@@ -1,32 +1,24 @@
 
-
 		<div class="mt-3">
-			<h1 align="center">	Tambah Daftar Barang</h1>
-				<a class="btn btn btn-warning" href="<?= site_url('barang/index') ?>">Kembali</a>
+			<h1 align="center">	Tambah Daftar Penjualan</h1>
+				<a class="btn btn btn-warning" href="<?= site_url('penjualan/index') ?>">Kembali</a>
 				<br><br>
-			<form action="<?=site_url('barang/createbarang');?>" method="POST">
+			<form action="<?=site_url('penjualan/createpenjualan');?>" method="POST">
 				<div class="mb-3 row">
-					<label for=" exampleFormControlInput1" class="col-sm-2 col-form-label">ID Barang</label>
+					<label for=" exampleFormControlInput1" class="col-sm-2 col-form-label">Tanggal Penjualan</label>
 					<div class="col-sm-10">
-						<input type="number" name="barang_id" class="form-control" id="exampleFormControlInput1" placeholder="Masukan ID Barang">
+						<input type="hidden" name="tgl_penjualan" value="<?=date('Y-m-d')?>">
 					</div>
 				</div>
 				<div class="mb-3 row">
-					<label for=" exampleFormControlInput1" class="col-sm-2 col-form-label">Nama Barang</label>
+					<label for=" exampleFormControlInput1" class="col-sm-2 col-form-label">ID Pelanggan</label>
 					<div class="col-sm-10">
-						<input type="text" name="nama_barang" class="form-control" id="exampleFormControlInput1" placeholder="Masukan Nama Barang">
-					</div>
-				</div>
-				<div class="mb-3 row">
-					<label for=" exampleFormControlInput1" class="col-sm-2 col-form-label">Harga Barang</label>
-					<div class="col-sm-10">
-						<input type="number" nama="harga_barang" class="form-control" id="exampleFormControlInput1" placeholder="Masukan Harga Barang">
-					</div>
-				</div>
-				<div class="mb-3 row">
-					<label for=" exampleFormControlInput1" class="col-sm-2 col-form-label">Stok</label>
-					<div class="col-sm-10">
-						<input type="number" nama="stok" class="form-control" id="exampleFormControlInput1" placeholder="Masukan Stok Barang">
+						<select class="form-select" name="pelanggan_id" aria-label="Default select example">
+							<option selected>-- Pilih Pelanggan --</option>
+							<?php foreach ($allpelanggan as $id =>$pelanggan) { ?>
+								<option value="<?= $pelanggan['pelanggan_id'] ?>"><?= $pelanggan['nama_pelanggan'] ?></option>
+							<?php }?>
+						</select>
 					</div>
 				</div>
 				<div class="mb-3 row">
